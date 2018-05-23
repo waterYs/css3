@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 flex弹性盒子</title>
+	<style>
+		*{margin:0;padding:0;}
+		.box{
+			width: 500px;
+			height: 300px;
+			background-color: red;
+			display: flex;
+			/* display:-webkit-flex; */
+			flex-direction:row-reverse;/*水平反向*/
+			flex-direction: column;/*竖直排列*/
+			flex-direction: column-reverse;/*竖直反向*/
+			flex-direction: inherit;/*继承父属性*/
+			justify-content: center;/*水平居中*/
+			align-items: center;/*竖居中在父容器中*/
+			justify-content:flex-start;/*靠左*/
+			justify-content: flex-end;/*靠右*/
+			flex-wrap: nowrap;/*默认 不撤行*/
+			flex-wrap: wrap;
+			/* flex-wrap: wrap-reverse; */
+			align-content: stretch;/*针对于容器*/
+			align-content: center;
+			align-content: flex-start;
+			align-content: flex-end;
+			align-content: space-between;
+			align-content: space-around;
+			flex-flow: row nowrap;
+			flex-flow: column wrap;
+		}
+		.box1{
+			flex: 1;
+			height: 100px;
+			background-color: green;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			justify-content:flex-start;/*靠左*/
+			justify-content: flex-end;/*靠右*/
+			justify-content: space-between;
+			justify-content: space-around;
+			align-items: stretch;/*默认值 flex-start*/
+			align-items: flex-start;
+			align-items: flex-end;
+			align-items: baseline;
+			/* flex-wrap: wrap; *//*换行*/
+			/* flex-wrap: wrap-reverse; */
+			order: 2;/*排序*/
+			align-self: auto;/*针对于容器本身*/
+			align-self: stretch;/*拉伸*/
+			align-self: center;
+			/* align-items: flex-start; */
+			align-self: flex-start;
+			align-self: flex-end;
+		}
+		.box2{
+			flex: 2;
+			/* height:initial; */
+			height:200px;
+			width:200px;/* 设置宽度失效 */
+			background-color: lime;
+			order: 3;
+		}
+		.box3{
+			background-color: yellow;
+			width: 500px;
+			height: 200px;
+			order:5;
+		}
+	</style>
+</head>
+<body>
+	<h1>css flex弹性盒子</h1>
+	<h5>兼容性：ie11支持</h5>
+	<div class="box">
+		<div class="box1">
+			<!-- box1 -->
+			<p>p1</p>
+			<p>p2</p>
+		</div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+</body>
+</html>
