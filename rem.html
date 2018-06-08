@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rem</title>
+</head>
+<style>
+	*{margin: 0;padding: 0;}
+	html,body{
+		font-size:100%;
+	}
+	.demo{
+		font-size: 8rem;
+		width: 80rem;
+		height: 10rem;
+		border: 1px solid red;
+	}
+	.demo1{
+		width:80rem;
+		height: 10rem;
+		border: 1px solid green;
+		font-size: 8rem;
+		margin-top: 2rem;
+	}
+	@media screen and (max-width: 768px){
+		html,body{
+			font-size: 62.5%;/*1.相当于10px 2.rem 自适应缩放*/
+		}
+	}
+</style>
+<body>
+	<div class="demo">
+		<p>rem</p>
+	</div>
+	<div class="demo1">
+		rem1
+	</div>
+</body>
+</html>
