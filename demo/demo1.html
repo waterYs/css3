@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3 3d 动画</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .demo{
+            width: 600px;
+            height: 300px;
+            border:1px solid green;
+            transform-style:preserve-3d;/*设置子元素在3d空间展示*/
+            perspective:5000px;/*设置透视距离 有距离和空间的感觉 有角度的感觉*/
+            margin:0 auto;
+            margin-top:100px;
+            position: relative;
+        }
+        .box{
+            width: 600px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        @keyframes anim1{
+            0%{
+                transform:translate3d(0,0,0) rotate3d(0,1,0,0);
+            }
+            50%{
+                transform:translate3d(0,0,-300px) rotate3d(0,1,0,-45deg);
+            }
+            100%{
+                transform:translate3d(0,0,-600px) rotate3d(0,1,0,-90deg);
+            }
+        }
+        .box1{
+            background-color: red;
+            transform-origin:0 0;/*旋转位置*/
+            animation: anim1 5s linear infinite;/*forwards 停靠在最后位置，alternate 奇数正向播放、偶数反向播放 infinite 无限播放*/
+            backface-visibility:hidden;
+        }
+        @keyframes anim2{
+            0%{
+                transform:translate3d(0,0,0) rotate3d(0,1,0,90deg)
+            }
+            50%{
+                transform:translate3d(-300px,0,-300px) rotate3d(0,1,0,45deg)
+            }
+            100%{
+                transform:translate3d(-600px,0,-600px) rotate3d(0,1,0,0deg);
+            }
+        }
+        .box2{
+            left: 600px;
+            transform-origin:0 0;
+            background-color: green;
+            animation: anim2 5s linear infinite;
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo" class="demo">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+    </div>
+</body>
+</html>

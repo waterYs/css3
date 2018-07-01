@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3 自定义滚动条</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 300px;
+            background-color: antiquewhite;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        .box1{
+            width: 600px;
+            height: 600px;
+            background-color: beige;
+
+        }
+        /*设置滚动条样式 start*/
+        .box::-webkit-scrollbar{
+            width: 15px;
+            /* height: 50px; */
+            height: 15px;
+            background-color: red;
+        }
+        
+        /*.box::-moz-scrollbar{
+            火狐不适用
+        } */
+        .box::-webkit-scrollbar-track{/*滚动条轨道*/
+            /* -webkit-box-shadow: inset 0 0 6px rgba(255,0,0,0.3); */
+            border-radius: 5px;
+            background-color:orange;
+        }        
+        .box::-webkit-scrollbar-thumb{/*定义滑块*/
+            border-radius: 20px;
+            background-color: green;
+        }
+        .box::-webkit-scrollbar-button{/*滚动条两端的小按钮*/
+            width: 10px;
+            height: 10px;
+            background-color: black;
+        }
+        .box::-webkit-scrollbar-corner{/*滚动条交汇处 width height 不适用*/
+            /* width: 5px;
+            height: 5px; */
+            background-color: red;
+        }
+        .box::-webkit-resizer{/*不怎么起作用*/
+            background-color: blue;
+        }
+        .box:horizontal{/*伪类  水平方向 暂时未看到效果*/
+            width: 100px;
+            background-color:black;
+            overflow: hidden;
+        }
+        /*end*/
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            1111111111111111
+        </div>
+    </div>
+</body>
+</html>

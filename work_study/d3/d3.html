@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .d3 div{
+            font-size:12px;
+            background-color:red;
+            color:white;
+            padding:5px;
+            margin:5px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="d3">柱状图</div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        var data=[30,60,90,120,150];
+        d3.select('.d3').selectAll('div').data(data).enter().append('div').style('width',function (d) {
+            return d+'px'
+        }).text(function (d) {
+            return d;
+        });
+    </script>
+</body>
+</html>

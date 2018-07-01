@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 animate动画</title>
+	<style>
+		@keyframes animate1{
+			from{left: 0}
+			to{left:200px}
+		}
+		@-webkit-keyframes animate1{
+			from{left:0}
+			to{left:200px}
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+			display: flex;
+			align-items:center;
+			justify-content: center;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: lime;
+			position: relative;
+			display: flex;
+			align-items:center;
+			justify-content: center;
+		}
+		.box1{
+			animation: animate1 2s;
+			animation-duration: 2s;/*动画多少秒完成*/
+			animation-timing-function: cubic-bezier(0,1,0.5,0);/*运动类型 linear ease ease-in 
+			ease-out cubic-bezier*/
+			animation-delay: 1s;/*延迟2s执行动画*/
+			animation-iteration-count: 1;/*动画播放次数 infinite*/
+			animation-direction: alternate;/*动画方向 normal reverse alternate alternate-reverse initial inherit*/
+			animation-fill-mode: forwards;/*动画停靠的位置 none forwards backwards both initial inherit*/
+			/* -webkit-animation: animate1 2s; */
+			animation-play-state:running;/*规定动画是否暂停或运行 paused running*/
+		}
+		.box2{
+			/* width:200px; */
+			transition: width 2s;
+			transition-property: width;/*过渡属性 none all property*/
+			transition-duration: 1s;/*过渡时间*/
+			transition-timing-function: linear;/*过渡运动类型 linear ease ease-in ease-in-out cubic-bezier*/
+			transition-delay: 1s;/*过渡延迟时间*/
+			/* -webkit-transition: width 2s; */
+		}
+		.box2:hover{
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>css3 animate  动画</h1>
+	<p>兼容性：ie10</p>
+	<div class="box1">动画</div>
+	<div class="box2">过渡</div>
+</body>
+</html>

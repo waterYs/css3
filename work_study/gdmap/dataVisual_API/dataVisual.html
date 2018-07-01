@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高德地图 数据可视化 js api</title>
+    <style>
+        *{margin: 0;padding: 0;}
+    </style>
+</head>
+<body>
+    <!--高德地图的兼容性 支持到ie9-->
+    <div id="map" style="width:100%;height: 100%;position: fixed;">
+
+    </div>
+    <!--引入loca js库 目前只能通过线上引用-->
+    <!-- 引用线上代码 没有指定版本号时，默认最新版本-->
+    <script src="http://webapi.amap.com/loca?key=294795affbe36f49cc22a72cc1400325"></script>
+    <script>
+        /*创建地图 start*/
+        var loca=Loca.create('map',{
+            mapStyle:'amap://styles/grey',
+            zoom:5,
+            center:[107.4976,32.1697]
+        })
+        /*end*/
+        /*虚拟图层 用来绘制图形，数据可视化展示 start*/
+        var layer=Loca.visualLayer({
+            eventSupport:true,//开启事件
+            container:loca,
+            type:'point',
+            shape:'circle'
+        })
+        /*end*/
+        /*设置数据 start*/
+        var data=[
+            {'lnglat':[116.366794, 39.915309],'name':'西城区','style':2},
+            {'lnglat':[116.486409, 39.921489], "name": "朝阳区",'style':2},
+            { "lnglat": [116.286968, 39.863642], "name": "丰台区", "style": 2 },
+        ]
+        layer.setData(data,{
+            type:'json',
+            lnglat:'lnglat'
+        })
+        /*end*/
+        /*配置样式 start*/
+        layer.setOptions({
+            style:{
+                radius:5,//圆形半径
+                fill:'red',//填充颜色
+                lineWidth:5,//边框宽度
+                stroke:'green'//边框颜色
+            }
+        })
+        /*end*/
+        /*虚拟层 事件 start*/
+        layer.on('click', function(event) {
+            console.log('Click target: ', event.target) // 触发click事件的元素
+            console.log('Event type: ', event.type) // 事件名称
+            console.log('Raw Event: ', event.originalEvent) // 原始DomEvent事件
+            console.log('Raw data: ', event.rawData) // 触发元素对应的原始数据
+            console.log('Lnglat: ', event.lnglat) // 元素所在经纬度
+        });
+        /*end*/
+        /*渲染虚拟图层 start*/
+        layer.render();
+        /*end*/
+    </script>
+</body>
+</html>
